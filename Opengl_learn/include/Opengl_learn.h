@@ -3,6 +3,9 @@
 
 #pragma once
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include <iostream>
+#include <cmath>
 
 // TODO: Reference additional headers your program requires here.
