@@ -13,8 +13,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(SRC_DIR "src/")
 set(INCLUDE_DIR "include/")
 
-set(SRC "${SRC_DIR}Opengl_learn.cpp")
-set(HEADERS "${INCLUDE_DIR}Opengl_learn.h")
+set(SRC "${SRC_DIR}lhello_triangle.cpp")
+set(HEADERS "${INCLUDE_DIR}lhello_triangle.h")
 
 # libraries to find
 find_package(glad CONFIG REQUIRED)
@@ -22,11 +22,11 @@ find_package(glfw3 CONFIG REQUIRED)
      
 
 # Add source to this project's executable.
-add_executable (Opengl_learn "${SRC}" "${HEADERS}")
+add_executable (lhello_triangle "${SRC}" "${HEADERS}")
 
-target_include_directories(Opengl_learn PRIVATE ${INCLUDE_DIR})
+target_include_directories(lhello_triangle PRIVATE ${INCLUDE_DIR})
 
-target_link_libraries(Opengl_learn PRIVATE glad::glad)
-target_link_libraries(Opengl_learn PRIVATE glfw)
+target_link_libraries(lhello_triangle PRIVATE glad::glad)
+target_link_libraries(lhello_triangle PRIVATE glfw)
 
 # TODO: Add tests and install targets if needed.

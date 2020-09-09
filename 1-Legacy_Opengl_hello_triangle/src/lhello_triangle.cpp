@@ -1,7 +1,7 @@
 ﻿// Opengl_learn.cpp : Defines the entry point for the application.
 //
 
-#include "Opengl_learn.h"
+#include "lhello_triangle.h"
 
 void framebuffer_size_callback(GLFWwindow* window, const int width, const int height)
 {
