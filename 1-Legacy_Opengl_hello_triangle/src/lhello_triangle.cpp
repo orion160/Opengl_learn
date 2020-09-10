@@ -1,4 +1,4 @@
-﻿// Opengl_learn.cpp : Defines the entry point for the application.
+﻿// lhello_triangle.cpp : Defines the entry point for the application.
 //
 
 #include "lhello_triangle.h"
@@ -19,7 +19,7 @@ int main(int argc, char** argv)
 	const int width = 640;
 	const int height = 480;
 
-	GLFWwindow* window = glfwCreateWindow(width, height, "My Title", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(width, height, "Legacy hello triangle", nullptr, nullptr);
 	if (window == nullptr)
 	{
 		// Window or OpenGL context creation failed
