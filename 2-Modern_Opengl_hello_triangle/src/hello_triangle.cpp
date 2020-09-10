@@ -115,6 +115,9 @@ int main(int argc, char** argv)
 		0.0F, 0.5F, 0.0F
 	};
 
+	GLuint VAO;
+	glGenVertexArrays(1, &VAO);
+	glBindVertexArray(VAO);
 
 	GLuint VBO;
 	glGenBuffers(1, &VBO);
@@ -130,6 +133,7 @@ int main(int argc, char** argv)
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glUseProgram(shaderProgram);
+		glBindVertexArray(VAO);
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 
 		/* Swap front and back buffers */
