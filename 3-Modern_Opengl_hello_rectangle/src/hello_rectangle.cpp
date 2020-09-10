@@ -1,7 +1,7 @@
-﻿// hello_triangle.cpp : Defines the entry point for the application.
+﻿// hello_rectangle.cpp : Defines the entry point for the application.
 //
 
-#include "hello_triangle.h"
+#include "hello_rectangle.h"
 
 void framebuffer_size_callback(GLFWwindow* window, const int width, const int height)
 {
@@ -19,7 +19,7 @@ int main(int argc, char** argv)
 	const int width = 640;
 	const int height = 480;
 
-	GLFWwindow* window = glfwCreateWindow(width, height, "Hello triangle", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(width, height, "Hello rectangle", nullptr, nullptr);
 	if (window == nullptr)
 	{
 		// Window or OpenGL context creation failed
@@ -41,7 +41,7 @@ int main(int argc, char** argv)
 	std::cout << "GLFW-version: " << glfwGetVersionString() << '\n';
 	std::cout << "Opengl-version: " << glGetString(GL_VERSION) << '\n';
 
-	const constexpr char* vertexShaderSource =
+	const constexpr char* vertexShaderSource = 
 		"#version 330 core\n"
 		"\n"
 		"layout (location = 0) in vec3 aPos;\n"
@@ -51,7 +51,7 @@ int main(int argc, char** argv)
 		"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
 		"}\n";
 
-
+	
 
 	GLuint vertexShader;
 	vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -110,9 +110,16 @@ int main(int argc, char** argv)
 
 	GLfloat vertices[] =
 	{
-		-0.5F, -0.5F, 0.0F,
-		0.5F, -0.5F, 0.0F,
-		0.0F, 0.5F, 0.0F
+		 0.5f,  0.5f, 0.0f,  // top right
+		 0.5f, -0.5f, 0.0f,  // bottom right
+		-0.5f, -0.5f, 0.0f,  // bottom left
+		-0.5f,  0.5f, 0.0f   // top left 
+	};
+
+	GLuint indices[] =
+	{
+		0, 1, 3,  // first Triangle
+		1, 2, 3   // second Triangle
 	};
 
 	GLuint VAO;
@@ -124,8 +131,15 @@ int main(int argc, char** argv)
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
+	GLuint EBO;
+	glGenBuffers(1, &EBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+
+	glBindVertexArray(0);
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -134,7 +148,7 @@ int main(int argc, char** argv)
 
 		glUseProgram(shaderProgram);
 		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, 6);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
@@ -146,6 +160,7 @@ int main(int argc, char** argv)
 
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
+	glDeleteBuffers(1, &EBO);
 	glDeleteProgram(shaderProgram);
 
 	glfwTerminate();
