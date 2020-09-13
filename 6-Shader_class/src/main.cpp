@@ -44,7 +44,7 @@ int main(int argc, char** argv)
 	std::cout << "Opengl-version: " << glGetString(GL_VERSION) << '\n';
 	namespace fs = std::filesystem;
 	std::cout << "Current path is " << fs::current_path() << '\n';
-	Shader shader("C:/dev/c++/Opengl_learn/6-Shader_class/resources/shaders/vertex/vertex_color.vs", "C:/dev/c++/Opengl_learn/6-Shader_class/resources/shaders/fragment/vertex_color.fs");
+	Shader shader("C:/dev/c++/Opengl_learn/6-Shader_class/resources/shaders/vertex/vertex_color.shader", "C:/dev/c++/Opengl_learn/6-Shader_class/resources/shaders/fragment/vertex_color.shader");
 
 	GLfloat vertices[] =
 	{
