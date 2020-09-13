@@ -1,4 +1,4 @@
-﻿# CMakeList.txt : CMake project for 3-Modern_Opengl_hello_rectangle, include source and define
+﻿# CMakeList.txt : CMake project for 4-Simple_shader, include source and define
 # project specific logic here.
 #
 cmake_minimum_required (VERSION 3.16)
