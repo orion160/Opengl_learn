@@ -3,7 +3,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include <stb_image.h>
 #include "shader_class.h"
 
 void framebuffer_size_callback(GLFWwindow* window, const int width, const int height)

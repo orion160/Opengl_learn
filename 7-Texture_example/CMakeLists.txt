@@ -14,15 +14,20 @@ set(SRC_DIR "src/")
 set(INCLUDE_DIR "include/")
 
 set(SRC "${SRC_DIR}shader_class.cpp" "${SRC_DIR}main.cpp")
-set(HEADERS "${INCLUDE_DIR}shader_class.h" "${INCLUDE_DIR}stb_image")
+set(HEADERS "${INCLUDE_DIR}shader_class.h")
 
 # libraries to find
 find_package(glad CONFIG REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
+
+
      
 
 # Add source to this project's executable.
 add_executable (texture_example "${SRC}" "${HEADERS}")
+
+find_path(STB_INCLUDE_DIRS "stb.h")
+target_include_directories(texture_example PRIVATE ${STB_INCLUDE_DIRS})
 
 target_include_directories(texture_example PRIVATE ${INCLUDE_DIR})
 
