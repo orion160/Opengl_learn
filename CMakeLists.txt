@@ -13,5 +13,5 @@ add_subdirectory ("4-Simple_shader")
 add_subdirectory ("5.Vertex_color")
 add_subdirectory ("6-Shader_class")
 add_subdirectory ("7-Texture_example")
-
+add_subdirectory ("8-Transformations")
 
