@@ -88,7 +88,7 @@ int main(int argc, char** argv)
 	glEnableVertexAttribArray(1);
 
 	// Texture attribute
-	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), reinterpret_cast<GLvoid*>(6 * sizeof(float)));
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), reinterpret_cast<GLvoid*>(6 * sizeof(float)));
 	glEnableVertexAttribArray(2);
 
 	// load and create a texture1
